@@ -11,10 +11,12 @@ const API_URL_ICON = "http://openweathermap.org/img/wn/";
 class API_WEATHER{
   constructor(city){
     // Si la ville n'est pas définit alors la ville par défault est Paris
-    if(city === undefined){
-      city = "paris";
+    if(document.getElementById("city-input").value === ""){
+      this.city = "paris";
     }
-    this.city = document.getElementById("city-input").value;
+    else {
+      this.city= document.getElementById("city-input").value;
+    }
   }
 
   // Faire la requete à l'API openweathermap
@@ -22,6 +24,13 @@ class API_WEATHER{
   fetchTodayForecast(){
     return axios
     .get(`${API_URL}?q=${this.city}&units=metric&appid=${API_KEY}`, {
+      crossdomain: true
+    })
+  }
+
+  fetchNextDaysForecast(){
+    return axios
+    .get(`https://api.openweathermap.org/data/2.5/forecast/daily?q=q=${this.city}&units=metric&cnt=3&appid=${API_KEY}`, {
       crossdomain: true
     })
   }
