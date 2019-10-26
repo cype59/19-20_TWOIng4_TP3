@@ -30,7 +30,7 @@ class API_WEATHER{
 
   fetchNextDaysForecast(){
     return axios
-    .get(`https://api.openweathermap.org/data/2.5/forecast/daily?q=q=${this.city}&units=metric&cnt=3&appid=${API_KEY}`, {
+    .get(`https://api.openweathermap.org/data/2.5/forecast/daily?q=${this.city}&units=metric&cnt=4&appid=${API_KEY}`, {
       crossdomain: true
     })
   }
