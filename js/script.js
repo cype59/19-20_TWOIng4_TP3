@@ -41,7 +41,7 @@ function getThreeDayForecast() {
       // Récupère la donnée d'une API
       const data = response.data;
 
-      for (let i = 1; i < 5; i++) {
+      for (let i = 1; i < 4; i++) {
         const main= data.list[i].weather[0].main;
         const description = data.list[i].weather[0].description;
         const temp = data.list[i].temp.day;
